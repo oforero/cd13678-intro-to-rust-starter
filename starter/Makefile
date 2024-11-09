@@ -14,7 +14,7 @@ TEST_GAME_EXE = $(OUTPUT_DIR)/test_game_exe
 build-c:
 	@echo "Building OpenGL Wrapper library..."
 	gcc -c -fPIC $(OPENGL_WRAPPER_LIB_SRC) -o $(OPENGL_WRAPPER_LIB_OBJ) # Compile source file
-	gcc -shared -o $(OPENGL_WRAPPER_LIB_SO) $(OPENGL_WRAPPER_LIB_OBJ) -lglfw -lGL # Create shared library
+	gcc -shared -o $(OPENGL_WRAPPER_LIB_SO) $(OPENGL_WRAPPER_LIB_OBJ) -lglfw -framework OpenGL # Create shared library
 
 .PHONY: run-c
 run-c: build-c
