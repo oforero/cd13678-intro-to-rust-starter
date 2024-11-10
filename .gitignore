@@ -11,5 +11,5 @@ project/solution/c_output/test_game_exe
 # Ignore Rust target directory
 **target/
 
-c_output
-test_game_exe
+starter/c_output
+**test_game_exe
