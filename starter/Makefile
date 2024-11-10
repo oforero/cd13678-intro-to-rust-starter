@@ -1,3 +1,13 @@
+OS := $(shell uname)
+ ifeq ($(OS), Darwin)
+        OS := mac
+ else ifeq ($(OS), Linux)
+        OS := linux
+ else
+        $(info Warning: unknown OS, assuming linux)
+        OS := linux
+ endif
+
 OUTPUT_DIR = ./c_output
 
 OPENGL_WRAPPER_LIB_DIR = ./opengl_wrapper_lib
@@ -10,11 +20,17 @@ TEST_GAME_DIR = ./c_test_game
 TEST_GAME_SRC = $(TEST_GAME_DIR)/test_game.c
 TEST_GAME_EXE = $(OUTPUT_DIR)/test_game_exe
 
+ifeq ($(OS), linux)
+    LINK_OPENGL = -lGL
+else ifeq ($(OS), mac)
+    LINK_OPENGL = -framework OpenGL
+endif
+
 .PHONY: build-c
 build-c:
 	@echo "Building OpenGL Wrapper library..."
 	gcc -c -fPIC $(OPENGL_WRAPPER_LIB_SRC) -o $(OPENGL_WRAPPER_LIB_OBJ) # Compile source file
-	gcc -shared -o $(OPENGL_WRAPPER_LIB_SO) $(OPENGL_WRAPPER_LIB_OBJ) -lglfw -framework OpenGL # Create shared library
+	gcc -shared -o $(OPENGL_WRAPPER_LIB_SO) $(OPENGL_WRAPPER_LIB_OBJ) -lglfw  $(LINK_OPENGL) # Create shared library
 
 .PHONY: run-c
 run-c: build-c
