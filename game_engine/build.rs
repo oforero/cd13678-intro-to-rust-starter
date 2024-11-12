@@ -5,7 +5,7 @@ fn main() {
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
     // the resulting bindings.
-    let bindings = bindgen::Builder::default()
+/*    let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
         .header("opengl_libc/opengl_wrapper_lib/opengl_wrapper_lib.h")
@@ -23,10 +23,28 @@ fn main() {
     bindings
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
+*/
 
     cc::Build::new()
-        .file("./opengl_libc/opengl_wrapper_lib/opengl_wrapper_lib.c")
-        .include("./opengl_libc/opengl_wrapper_lib/")
-        .compile("opengl_wrapper_lib.o");
+        .file("opengl_libc/opengl_wrapper_lib/opengl_wrapper_lib.c")
+        .include("opengl_libc/opengl_wrapper_lib")
+        // .include("opengl_libc/include")
+        .include("/opt/homebrew/include")
+        // .link_lib_modifier("cdylib")
+        // .flag("-framework")
+        // .flag("OpenGL")
+        .flag("-v")
+       .compile("opengl_wrapper_lib");
+
+    println!("cargo:rustc-link-search=native=/opt/homebrew/Cellar/glfw/3.4/lib/"); // Adjust the path if necessary
+
+    // Link against the GLFW static library
+    println!("cargo:rustc-link-lib=static=glfw3");
+    println!("cargo:rustc-link-lib=framework=OpenGL");
+    println!("cargo:rustc-link-lib=framework=CoreFoundation");
+    // Link against Core Graphics
+    println!("cargo:rustc-link-lib=framework=CoreGraphics");
+    println!("cargo:rustc-link-lib=framework=IOKit");
+    println!("cargo:rustc-link-lib=framework=AppKit");
 
 }

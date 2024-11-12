@@ -98,6 +98,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "game"
+version = "0.1.0"
+dependencies = [
+ "game_engine",
+]
+
+[[package]]
 name = "game_engine"
 version = "0.1.0"
 dependencies = [

@@ -27,7 +27,7 @@ else ifeq ($(OS), mac)
 	PREFIX = $$(brew --prefix)
 	INCLUDE = -I$(PREFIX)/include
 	LIB = -L$(PREFIX)/lib
-	CC=gcc $(INCLUDE) $(LIB)
+	CC=clang $(INCLUDE) $(LIB)
     LINK_OPENGL = -framework OpenGL
 endif
 
