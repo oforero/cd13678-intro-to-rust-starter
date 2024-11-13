@@ -11,6 +11,7 @@ pub const GLFW_KEY_DOWN: c_int = 264;
 pub const GLFW_KEY_UP: c_int = 265;
 
 pub use ffi::Sprite;
+use crate::ffi::GLFWwindow;
 
 pub fn create_game_window(
     title: &str,
@@ -57,5 +58,16 @@ pub fn render_sprite(sprite: &mut Sprite) {
 pub fn clear_screen() {
     unsafe {
         ffi::clear_screen();
+    }
+}
+
+pub fn get_window() -> *mut GLFWwindow {
+    unsafe {
+        ffi::get_window()
+    }
+}
+pub fn get_key(window: *mut GLFWwindow, key: c_int) -> c_int {
+    unsafe {
+        ffi::get_key(window, key)
     }
 }

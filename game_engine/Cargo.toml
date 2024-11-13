@@ -24,3 +24,8 @@ harness = false
 name = "test_screen_clearing"
 path = "tests/test_screen_clearing.rs"
 harness = false
+
+[[test]]
+name = "test_key_press"
+path = "tests/test_key_presses.rs"
+harness = false
