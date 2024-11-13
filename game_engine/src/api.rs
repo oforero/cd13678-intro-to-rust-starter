@@ -55,6 +55,13 @@ pub fn render_sprite(sprite: &mut Sprite) {
     }
 }
 
+pub fn update_sprite_position(sprite: &mut Sprite, x: f32, y: f32) {
+    unsafe {
+        ffi::update_sprite_position(sprite, x, y);
+    }
+}
+
+
 pub fn clear_screen() {
     unsafe {
         ffi::clear_screen();

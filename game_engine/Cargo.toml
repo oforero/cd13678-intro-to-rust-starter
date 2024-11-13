@@ -29,3 +29,8 @@ harness = false
 name = "test_key_press"
 path = "tests/test_key_presses.rs"
 harness = false
+
+[[test]]
+name = "test_sprite_position_update"
+path = "tests/test_sprite_position_update.rs"
+harness = false
