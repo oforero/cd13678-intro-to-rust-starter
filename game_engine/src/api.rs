@@ -50,6 +50,12 @@ pub fn create_sprite(
 
 pub fn render_sprite(sprite: &mut Sprite) {
     unsafe {
-        ffi::render_sprite(sprite)
+        ffi::render_sprite(sprite);
+    }
+}
+
+pub fn clear_screen() {
+    unsafe {
+        ffi::clear_screen();
     }
 }
