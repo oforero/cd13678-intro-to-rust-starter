@@ -14,3 +14,8 @@ cc = "1.1.37"
 name = "test_simple_game_loop"
 path = "tests/test_simple_game_loop.rs"
 harness = false
+
+[[test]]
+name = "test_sprite_rendering"
+path = "tests/test_sprite_rendering.rs"
+harness = false
