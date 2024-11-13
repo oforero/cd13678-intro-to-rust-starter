@@ -1,4 +1,5 @@
-mod bindings;
+mod ffi;
+mod api;
 
-pub use bindings::*;
+pub use api::*;
 
