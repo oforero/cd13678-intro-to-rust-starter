@@ -19,8 +19,6 @@ pub struct Sprite {
 
 extern "C" {
 
-    pub fn init_gl_system();
-
     pub fn create_game_window(
         title: *const c_char,
         width: c_int,
