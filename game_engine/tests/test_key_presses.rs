@@ -10,7 +10,7 @@ fn main() {
     let mut right = false;
     let mut sprite = create_sprite(0.0, 0.0, 100, 100, 50, 50, 50);
 
-    start_window_and_game_loop!("Test Key Presses", 800, 600, 16,
+    start_window_and_game_loop!("Test Key Presses: Press Spacebar and all arrows sequentially", 800, 600, 16,
         !(spacebar && up && down && left && right),
         {
             render_sprite(&mut sprite);
