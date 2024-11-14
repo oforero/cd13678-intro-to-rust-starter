@@ -1,0 +1,9 @@
+[package]
+name = "rust_test_game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+game_engine = { path = "../game_engine" }
+reqwest = "0.12.9"
+serde = "1.0.215"
