@@ -33,3 +33,11 @@ macro_rules! on_key_press {
         }
     };
 }
+
+#[macro_export]
+macro_rules! spawn_sprite {
+    ($x: expr, $y: expr, $w: expr, $h: expr, $r: expr, $g: expr, $b: expr) => {
+        let mut sprite = game_engine::create_sprite($x, $y, $w, $h, $r, $g, $b);
+        game_engine::render_sprite(&mut sprite);
+    }
+}
