@@ -9,19 +9,14 @@ fn main() {
 
     start_window_and_game_loop!("Test Sprite Position Update", 800, 600, 16, {
         clear_screen();
-        render_sprite(&mut sprite);
+        if x < 800.0  {
+            move_sprite!(false, &mut sprite, 10.0, 0.0);
+        };
 
-        x = if x < 800.0  {
-            x + 10.0
-        } else {
-            0.0
+        if y < 600.0  {
+            move_sprite!(false, &mut sprite, 0.0, 10.0);
         };
-        y = if y < 600.0  {
-            y + 10.0
-        } else {
-            0.0
-        };
-        update_sprite_position(&mut sprite, x, y);
+
     });
 
 }
