@@ -23,5 +23,13 @@ macro_rules! start_window_and_game_loop {
             std::thread::sleep(std::time::Duration::from_millis($millis));
         }
     };
+}
 
+#[macro_export]
+macro_rules! on_key_press {
+    ($key: ident, $handler: block) => {
+        if game_engine::get_key(get_window(), $key) == game_engine::GLFW_PRESS {
+            $handler
+        }
+    };
 }
