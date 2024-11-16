@@ -80,7 +80,7 @@ int window_should_close() {
     return glfwWindowShouldClose(window);
 }
 
-// Function to get key state
+// Function to get key state: GLFW_PRESS or GLFW_REPEAT
 int get_key(GLFWwindow* window, int key) {
     return glfwGetKey(window, key);
 }
