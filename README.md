@@ -1,16 +1,30 @@
 # Building a Game Engine with Rust from the Ground Up
 
-This repository serves as the starting point for building a simple yet functional game engine using Rust. The project is designed to help you apply the concepts and skills you've learned throughout the Rust course. By completing this project, you'll gain hands-on experience with Rust's advanced features, including multi-threading, macros, and interoperability with C code.
+This is my implementation of Udacity's Introduction to Rust project, I restructured the project to separate concerns
+and make the introduction of binary modules like the test-game.
+
+The wrapper library around GLFW is now in the game_engine project, the project is a Rust Library that compiles 
+the C Library and the wrappers around using Cargo. 
 
 ## Getting Started
 
-When working on this project, you can choose between utilizing Udacity's VM environment or setting it all up on your local machine. If you prefer to use the Udacity VM, you can skip the local environment prerequisite steps and jump straight to the project instructions.
+The original repository is Linux centric and does not work out of the box in MacOS.
+
 
 ### Local environment prerequisites
 
-While this project has no specific dependencies on any system, it was built on a Unix-based machine. So, if you're on Windows, I'd recommend using the Windows Subsystem for Linux (WSL), so all instructions here directly apply to your system.  
+I extended the Makefile to work compile in MacOS, but it requires a working homebrew installation with
+the GLFW and sdl2 libraries installed:
 
-For this project, you'll need to have Rust installed in your machine. If you haven't installed Rust yet, you can do so with:
+```bash
+brew install glfw
+brew install sdl2
+```
+
+Besides that OpenGL development requires and XCode Command Line Tools installation.
+
+I have not tested the build in a Linux or window machine after the modifications, 
+for Linux/Window instructions please check Udacity's original repository.
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
