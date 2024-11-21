@@ -1,6 +1,16 @@
 
+.PHONY: build-c
+build-c:
+	@echo "Building OpenGL C Wrapper library..."
+	make -C game_engine/opengl_libc build-c
+
+.PHONY: run-c
+run-c:
+	@echo "Running Test Game..."
+	make -C game_engine/opengl_libc run-c
+
 .PHONY: build-rust
-run-c: build-rust
+build-rust:
 	@echo "Building Rust Games"
 	cargo build --manifest-path ./game_engine/Cargo.toml
 
