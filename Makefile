@@ -24,3 +24,8 @@ test-rust: build-rust
 	cargo test --manifest-path ./game_engine/Cargo.toml test --test test_key_press -- --nocapture --ignored
 	cargo test --manifest-path ./game_engine/Cargo.toml test --test test_sprite_position_update -- --nocapture --ignored
 	@echo "Tests done"
+
+.PHONY: game-rust
+game-rust: build-rust
+	@echo "Running Rust Simple Test Game..."
+	cargo run --manifest-path ./rust_test_game/Cargo.toml
